@@ -14,12 +14,12 @@ accesskey)
 
 # COMMAND ----------
 
-cust_path = "abfss://rawdata@cookbookadlsg2storage.dfs.core.windows.net/customers/parquetFiles"
+cust_path = "abfss://rawdata@{storageaccount}.dfs.core.windows.net/customers/parquetFiles"
 
 # COMMAND ----------
 
 df_cust = (spark.read.format("parquet").load(cust_path))
-df_cust.write.format("delta").mode("overwrite").save("abfss://rawdata@cookbookadlsg2storage.dfs.core.windows.net/customers/delta")
+df_cust.write.format("delta").mode("overwrite").save("abfss://rawdata@{storageaccount}.dfs.core.windows.net/customers/delta")
 
 # COMMAND ----------
 
@@ -28,7 +28,7 @@ df_cust.write.format("delta").mode("overwrite").save("abfss://rawdata@cookbookad
 # MAGIC DROP TABLE IF EXISTS Customer;
 # MAGIC CREATE TABLE Customer
 # MAGIC USING delta
-# MAGIC location "abfss://rawdata@cookbookadlsg2storage.dfs.core.windows.net/customers/delta"
+# MAGIC location "abfss://rawdata@{storageaccount}.dfs.core.windows.net/customers/delta"
 
 # COMMAND ----------
 
@@ -37,9 +37,9 @@ df_cust.write.format("delta").mode("overwrite").save("abfss://rawdata@cookbookad
 
 # COMMAND ----------
 
-ord_path = "abfss://rawdata@cookbookadlsg2storage.dfs.core.windows.net/orders/parquetFiles"
+ord_path = "abfss://rawdata@{storageaccount}.dfs.core.windows.net/orders/parquetFiles"
 df_ord = (spark.read.format("parquet").load(ord_path))
-df_ord.write.format("delta").mode("overwrite").save("abfss://rawdata@cookbookadlsg2storage.dfs.core.windows.net/orders/delta")
+df_ord.write.format("delta").mode("overwrite").save("abfss://rawdata@{storageaccount}.dfs.core.windows.net/orders/delta")
 
 # COMMAND ----------
 
@@ -47,7 +47,7 @@ df_ord.write.format("delta").mode("overwrite").save("abfss://rawdata@cookbookadl
 # MAGIC DROP TABLE IF EXISTS Orders;
 # MAGIC CREATE TABLE Orders
 # MAGIC USING delta
-# MAGIC location "abfss://rawdata@cookbookadlsg2storage.dfs.core.windows.net/orders/delta"
+# MAGIC location "abfss://rawdata@{storageaccount}.dfs.core.windows.net/orders/delta"
 
 # COMMAND ----------
 
