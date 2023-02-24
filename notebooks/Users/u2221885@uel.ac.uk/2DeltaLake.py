@@ -1,8 +1,8 @@
 # Databricks notebook source
 #This is ADLS Gen-2 accountname and access key details
-storageaccount="cookbookadlsg2storage"
+storageaccount=#enter the storage account before you run the notebook
 acct_info=f"fs.azure.account.key.{storageaccount}.dfs.core.windows.net"
-accesskey="YYax32MlhsocFCKQokLi85tHEQNoK/32aVOfpfyyv5pHM48iQvYIXU4erZHk1JIw349DmLKHt3ln+AStRaYXiw=="
+accesskey=#enter the access key before you run the notebook
 print(acct_info)
 
 # COMMAND ----------
